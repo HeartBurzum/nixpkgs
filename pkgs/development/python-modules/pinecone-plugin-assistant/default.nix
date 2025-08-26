@@ -8,7 +8,7 @@
 
 buildPythonPackage rec {
   pname = "pinecone-plugin-assistant";
-  version = "1.7.0";
+  version = "1.6.1";
 
   pyproject = true;
 
