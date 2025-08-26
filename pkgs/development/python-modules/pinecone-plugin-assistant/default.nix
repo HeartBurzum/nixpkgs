@@ -14,7 +14,7 @@ buildPythonPackage rec {
   src = fetchPypi {
     pname = "pinecone_plugin_assistant";
     inherit version;
-    hash = "sha256-uOZnXkGEczOqE5I8xE2qP4VnbXFXMkaC3BZAWIqYKEY=";
+    hash = "sha256-4m47oQqLccPaDXd8/0B2aAIugpY8SRPQ/+tsVSch5II=";
   };
 
   build-system = [
