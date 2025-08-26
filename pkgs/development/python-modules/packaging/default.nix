@@ -22,7 +22,7 @@ let
 
     src = fetchPypi {
       inherit pname version;
-      hash = "sha256-1EOHLJjWd79g9qHy+MHLdI6P52LSv50xSLVZkpWw/E8=";
+      hash = "sha256-wiim3F6TLTRrxXOTeRCdSeiFPdgiNXHHxbVSYO3AuX8=";
     };
 
     nativeBuildInputs = [ flit-core ];
