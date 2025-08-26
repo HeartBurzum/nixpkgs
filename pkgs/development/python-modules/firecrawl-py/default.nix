@@ -3,6 +3,7 @@
   buildPythonPackage,
   fetchFromGitHub,
   setuptools,
+  aiohttp,
   nest-asyncio,
   pydantic,
   python-dotenv,
@@ -27,6 +28,7 @@ buildPythonPackage rec {
   build-system = [ setuptools ];
 
   dependencies = [
+    aiohttp
     nest-asyncio
     pydantic
     python-dotenv
