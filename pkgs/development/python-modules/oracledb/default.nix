@@ -16,9 +16,12 @@ buildPythonPackage rec {
 
   disabled = pythonOlder "3.7";
 
-  src = fetchPypi {
-    inherit pname version;
-    hash = "sha256-m/nxyT5TFCsz0cXr9aur7r0gYqAdXq1ou7ZAQ57PIiM=";
+  src = fetchFromGitHub {
+    owner = "oracle";
+    repo = "python-oracledb";
+    tag = "v${version}";
+    fetchSubmodules = true;
+    hash = "sha256-SHIEl4pzuQBJ02KRPmOydFtmVD9qF3LGk9WPiDSpVzQ=";
   };
 
   postPatch = ''
