@@ -16,7 +16,7 @@
 
 buildPythonPackage rec {
   pname = "cython";
-  version = "3.1.2";
+  version = "3.0.12";
   pyproject = true;
 
   src = fetchFromGitHub {
