@@ -169,6 +169,7 @@ python3Packages.buildPythonApplication rec {
       pgvector
       pillow
       pinecone-client
+      pinecone-plugin-assistant
       playwright
       posthog
       psutil
