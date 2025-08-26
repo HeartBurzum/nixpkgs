@@ -2,7 +2,7 @@
   lib,
   buildPythonPackage,
   cryptography,
-  cython,
+  cython_3_1,
   fetchPypi,
   pythonOlder,
   setuptools,
@@ -30,7 +30,7 @@ buildPythonPackage rec {
 #  '';
 
   build-system = [
-    cython
+    cython_3_1
     setuptools
     wheel
   ];
