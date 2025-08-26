@@ -24,10 +24,10 @@ buildPythonPackage rec {
     hash = "sha256-SHIEl4pzuQBJ02KRPmOydFtmVD9qF3LGk9WPiDSpVzQ=";
   };
 
-  postPatch = ''
-    substituteInPlace pyproject.toml \
-      --replace-fail "cython == 3.1" "cython"
-  '';
+#  postPatch = ''
+#    substituteInPlace pyproject.toml \
+#      --replace-fail "cython == 3.1" "cython"
+#  '';
 
   build-system = [
     cython
