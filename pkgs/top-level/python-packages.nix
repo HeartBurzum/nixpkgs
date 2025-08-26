@@ -11174,6 +11174,8 @@ self: super: with self; {
 
   packaging = callPackage ../development/python-modules/packaging { };
 
+  packaging249 = callPackage ../development/python-modules/packaging249 { };
+
   packaging-legacy = callPackage ../development/python-modules/packaging-legacy { };
 
   packbits = callPackage ../development/python-modules/packbits { };
