@@ -3,6 +3,7 @@
   lib,
   fetchPypi,
   poetry-core,
+  requests,
 }:
 
 buildPythonPackage rec {
@@ -19,6 +20,10 @@ buildPythonPackage rec {
 
   build-system = [
     poetry-core
+  ];
+
+  dependencies = [
+    requests
   ];
 
   meta = {
