@@ -23,7 +23,7 @@ buildPythonPackage rec {
 
   postPatch = ''
     substituteInPlace pyproject.toml \
-      --replace-fail "cython == 3.1" "cython"
+      --replace-fail "cython == 3.0.2" "cython"
   '';
 
   build-system = [
