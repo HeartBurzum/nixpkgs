@@ -26,7 +26,7 @@ buildPythonPackage rec {
     owner = "coleifer";
     repo = "peewee";
     tag = version;
-    hash = "sha256-7MLDhMiW9LaedPMQ2QqSqos4SegzUmTX1joyV18MkEg=";
+    hash = "";
   };
 
   build-system = [ setuptools ];
