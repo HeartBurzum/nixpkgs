@@ -15,6 +15,7 @@
   typing-extensions,
   pinecone-plugin-interface,
   pinecone-plugin-inference,
+  pinecone-plugin-assistant,
   urllib3,
 }:
 
@@ -44,6 +45,7 @@ buildPythonPackage rec {
     python-dateutil
     pinecone-plugin-interface
     pinecone-plugin-inference
+    pinecone-plugin-assistant
     pyyaml
     requests
     tqdm
