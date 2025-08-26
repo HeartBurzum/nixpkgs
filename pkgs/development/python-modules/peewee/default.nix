@@ -17,7 +17,7 @@
 
 buildPythonPackage rec {
   pname = "peewee";
-  version = "3.18.1";
+  version = "3.18.2";
   pyproject = true;
 
   disabled = pythonOlder "3.7";
