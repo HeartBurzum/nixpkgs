@@ -25,7 +25,7 @@ buildPythonPackage rec {
     owner = "lxml";
     repo = "lxml";
     tag = "lxml-${version}";
-    hash = "sha256-/0Em3HX1XpDNFpmkvW/aXwffB4D1sDYEakwKeY=";
+    hash = "";
   };
 
   build-system = [
