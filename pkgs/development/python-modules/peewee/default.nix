@@ -2,7 +2,7 @@
   lib,
   apsw,
   buildPythonPackage,
-  cython,
+  cython_3_1,
   fetchFromGitHub,
   flask,
   python,
@@ -33,7 +33,7 @@ buildPythonPackage rec {
 
   buildInputs = [
     sqlite
-    cython
+    cython_3_1
   ];
 
   propagatedBuildInputs = [
