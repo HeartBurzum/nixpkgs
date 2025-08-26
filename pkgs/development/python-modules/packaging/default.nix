@@ -15,7 +15,7 @@
 let
   packaging = buildPythonPackage rec {
     pname = "packaging";
-    version = "24.9";
+    version = "24.2";
     pyproject = true;
 
     disabled = pythonOlder "3.7";
