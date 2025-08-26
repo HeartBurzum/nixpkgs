@@ -11642,7 +11642,7 @@ self: super: with self; {
 
   pinecone-plugin-interface = callPackage ../development/python-modules/pinecone-plugin-interface { };
 
-  pinecone-plugin-assistant = callPackage ../development/python-modules/pinecoine-plugin-assistant { };
+  pinecone-plugin-assistant = callPackage ../development/python-modules/pinecone-plugin-assistant { };
 
   ping3 = callPackage ../development/python-modules/ping3 { };
 
