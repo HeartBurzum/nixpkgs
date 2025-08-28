@@ -76,7 +76,7 @@ buildPythonPackage {
   # instead of rapidocr for the wheel to build correctly.
   preBuild = ''
     mkdir rapidocr_onnxruntime_t
-    mv rapidocr_onnxruntime rapidocr_onnxruntime_t
+    mv rapidocr_onnxruntime rapidocr_runtime_t
     mv rapidocr_onnxruntime_t rapidocr_onnxruntime
   '';
 
