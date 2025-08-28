@@ -46,7 +46,7 @@ let
       substituteInPlace package.json \
         --replace-fail "npm run pyodide:fetch && vite build" "vite build"
       substituteInPlace pyproject.toml \
-        --replace-fail "rapidocr-onnxruntime=1.4.4" "rapidocr"
+        --replace-fail "rapidocr-onnxruntime==1.4.4" "rapidocr"
     '';
 
     propagatedBuildInputs = [
