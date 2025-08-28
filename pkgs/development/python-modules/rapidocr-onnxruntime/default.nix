@@ -64,26 +64,26 @@ buildPythonPackage {
   ];
 
   postPatch = ''
-    mkdir -p rapidocr_onnxruntime/models
+    mkdir -p rapidocr/models
 
-    ln -s ${models}/* rapidocr_onnxruntime/models
+    ln -s ${models}/* rapidocr/models
 
     # Magic patch from upstream - what does this even do??
-    echo "from .rapidocr_onnxruntime.main import RapidOCR, VisRes" > __init__.py
+    echo "from .rapidocr.main import RapidOCR, VisRes" > __init__.py
   '';
 
   # Upstream expects the source files to be under rapidocr/rapidocr
   # instead of rapidocr for the wheel to build correctly.
   preBuild = ''
-    mkdir rapidocr_onnxruntime_t
-    mv rapidocr_onnxruntime rapidocr_runtime_t
-    mv rapidocr_onnxruntime_t rapidocr_onnxruntime
+    mkdir rapidocr_t
+    mv rapidocr rapidocr_t
+    mv rapidocr_t rapidocr
   '';
 
   # Revert the above hack
   postBuild = ''
-    mv rapidocr_onnxruntime rapidocr_onnxruntime_t
-    mv rapidocr_onnxruntime_t/* .
+    mv rapidocr rapidocr_t
+    mv rapidocr_t/* .
   '';
 
   build-system = [ setuptools ];
@@ -103,7 +103,7 @@ buildPythonPackage {
     tqdm
   ];
 
-  pythonImportsCheck = [ "rapidocr_onnxruntime" ];
+  pythonImportsCheck = [ "rapidocr" ];
 
   # As of version 2.1.0, 61 out of 70 tests require internet access.
   # It's just not plausible to manually pick out ones that actually work
@@ -119,6 +119,6 @@ buildPythonPackage {
     homepage = "https://github.com/RapidAI/RapidOCR";
     license = with lib.licenses; [ asl20 ];
     maintainers = with lib.maintainers; [ pluiedev ];
-    mainProgram = "rapidocr_onnxruntime";
+    mainProgram = "rapidocr";
   };
 }
