@@ -7,10 +7,8 @@
   replaceVars,
 
   setuptools,
-  colorlog,
   pyclipper,
   opencv-python,
-  omegaconf,
   numpy,
   six,
   shapely,
@@ -23,13 +21,13 @@
   requests,
 }:
 let
-  version = "3.3.1";
+  version = "2.1.0";
 
   src = fetchFromGitHub {
     owner = "RapidAI";
     repo = "RapidOCR";
     tag = "v${version}";
-    hash = "sha256-EgVBMQX+E8ejUd/6FUQ+uJoWjrQSVznpPcc2gA2wAOE=";
+    hash = "sha256-4R2rOCfnhElII0+a5hnvbn+kKQLEtH1jBvfFdxpLEBk=";
   };
 
   models =
@@ -64,46 +62,44 @@ buildPythonPackage {
   ];
 
   postPatch = ''
-    mkdir -p rapidocr/models
+    mv setup_onnxruntime.py setup.py
+    mkdir -p rapidocr_onnxruntime/models
 
-    ln -s ${models}/* rapidocr/models
+    ln -s ${models}/* rapidocr_onnxruntime/models
 
     # Magic patch from upstream - what does this even do??
-    echo "from .rapidocr.main import RapidOCR, VisRes" > __init__.py
+    echo "from .rapidocr_onnxruntime.main import RapidOCR, VisRes" > __init__.py
   '';
 
-  # Upstream expects the source files to be under rapidocr/rapidocr
-  # instead of rapidocr for the wheel to build correctly.
+  # Upstream expects the source files to be under rapidocr_onnxruntime/rapidocr_onnxruntime
+  # instead of rapidocr_onnxruntime for the wheel to build correctly.
   preBuild = ''
-    mkdir rapidocr_t
-    mv rapidocr rapidocr_t
-    mv rapidocr_t rapidocr
+    mkdir rapidocr_onnxruntime_t
+    mv rapidocr_onnxruntime rapidocr_onnxruntime_t
+    mv rapidocr_onnxruntime_t rapidocr_onnxruntime
   '';
 
   # Revert the above hack
   postBuild = ''
-    mv rapidocr rapidocr_t
-    mv rapidocr_t/* .
+    mv rapidocr_onnxruntime rapidocr_onnxruntime_t
+    mv rapidocr_onnxruntime_t/* .
   '';
 
   build-system = [ setuptools ];
 
   dependencies = [
-    colorlog
-    numpy
-    omegaconf
-    onnxruntime
-    opencv-python
-    pillow
     pyclipper
-    pyyaml
-    requests
-    shapely
+    opencv-python
+    numpy
     six
+    shapely
+    pyyaml
+    pillow
+    onnxruntime
     tqdm
   ];
 
-  pythonImportsCheck = [ "rapidocr" ];
+  pythonImportsCheck = [ "rapidocr_onnxruntime" ];
 
   # As of version 2.1.0, 61 out of 70 tests require internet access.
   # It's just not plausible to manually pick out ones that actually work
@@ -119,6 +115,6 @@ buildPythonPackage {
     homepage = "https://github.com/RapidAI/RapidOCR";
     license = with lib.licenses; [ asl20 ];
     maintainers = with lib.maintainers; [ pluiedev ];
-    mainProgram = "rapidocr";
+    mainProgram = "rapidocr_onnxruntime";
   };
 }
