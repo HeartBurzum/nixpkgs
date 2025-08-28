@@ -103,7 +103,7 @@ buildPythonPackage {
     tqdm
   ];
 
-  pythonImportsCheck = [ "rapidocr" ];
+  pythonImportsCheck = [ "rapidocr_onnxruntime" ];
 
   # As of version 2.1.0, 61 out of 70 tests require internet access.
   # It's just not plausible to manually pick out ones that actually work
