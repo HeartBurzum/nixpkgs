@@ -185,7 +185,7 @@ stdenv.mkDerivation rec {
 
     wrapProgramShell $out/opt/${binaryName}/${binaryName} \
         "''${gappsWrapperArgs[@]}" \
-        --add-flags "\''${NIXOS_OZONE_WL:+\''${WAYLAND_DISPLAY:+--ozone-platform=wayland --enable-features=WaylandWindowDecorations --enable-wayland-ime=true}}" \
+        --add-flags "\''${NIXOS_OZONE_WL:+\''${WAYLAND_DISPLAY:+--ozone-platform=wayland --enable-features=WaylandWindowDecorations,DefaultANGLEVulkan,VaapiIgnoreDriverChecks,Vulkan,VulkanFromANGLE --enable-wayland-ime=true}}" \
         ${lib.strings.optionalString withTTS ''
           --run 'if [[ "''${NIXOS_SPEECH:-default}" != "False" ]]; then NIXOS_SPEECH=True; else unset NIXOS_SPEECH; fi' \
           --add-flags "\''${NIXOS_SPEECH:+--enable-speech-dispatcher}" \
